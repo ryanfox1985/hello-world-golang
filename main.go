@@ -22,14 +22,14 @@ func main() {
   sBody := strings.Split(string(body), " ")
 
   words := make([]int, 30, 30)
-  tags := 0
+  links := 0
   for _,element := range sBody {
     if len(element) > 0 && len(element) < 30 { //&& strings.HasPrefix(element, "<")
       words[len(element)] = words[len(element)] + 1
     }
 
-    if strings.HasPrefix(element, "<") {
-      tags++
+    if strings.HasPrefix(element, "<a") {
+      links++
     }
 
   }
@@ -37,7 +37,7 @@ func main() {
   fmt.Println("Words size:")
   fmt.Println(words)
 
-  fmt.Printf("\nHtml tags: %d\n", tags)
+  fmt.Printf("\nLinks: %d\n", links)
 
   //fmt.Println(string(body))
   fmt.Println("\n\nEnd main!")
